@@ -5,32 +5,34 @@ import kong.unirest.JsonNode;
 import kong.unirest.json.JSONObject;
 
 public class UniResponse {
-    public String requestId;
-    public String code;
+    public Integer code;
     public String msg;
-    public int status;
-    public String data;
+    public Object data;
+
+    public boolean isSuccess() {
+        return this.code != null && this.code == 0;
+    }
 
     /**
      * Create a new Uni Response.
      *
      * @param response raw HTTP response
-     * @throws UniException if catch error
      */
-    public UniResponse(final HttpResponse<JsonNode> response) throws UniException {
-        JSONObject body = response.getBody().getObject();
-        this.status = response.getStatus();
-
-        if (body != null && body.has("code")) {
-            this.code = body.getString("code");
-            this.msg = body.getString("msg");
-
-            if (!code.equals("200")) {
-                throw new UniException(this.msg, code, this.requestId);
-            }
-            this.data = body.getString("data");
-        } else {
-            throw new UniException(response.getStatusText(), "-1");
+    public UniResponse(final HttpResponse<JsonNode> response) {
+        if (response == null || response.getStatus() != 200) {
+            this.code = 400;
+            this.msg = "network error";
+            return;
         }
+        JSONObject body = response.getBody().getObject();
+        if (body == null) {
+            this.code = 500;
+            this.msg = "server error";
+            return;
+        }
+
+        this.code = body.has("code") ? body.getInt("code") : 500;
+        this.msg = body.has("msg") ? body.getString("msg") : "server error";
+        this.data = body.has("data") ? body.get("data") : null;
     }
 }

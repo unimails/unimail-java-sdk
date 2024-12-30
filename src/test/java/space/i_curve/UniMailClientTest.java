@@ -2,11 +2,23 @@ package space.i_curve;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class UniMailClientTest {
     @Test
     public void testSendEmail() {
-        UniMailClient client = new UniMailClient("http://127.0.0.1:8080/api/email/sendEmail", "d887fb95-7a01-471a-a5ac-558ba5c100d6");
-        UniResponse uniResponse = client.sendEmail("test@qq.com", "test", "test");
-        System.out.println(uniResponse.data);
+        UnimailClient client = new UnimailClient("");
+        UniResponse uniResponse = client.sendEmail("i-curve@qq.com", "java test", "this is a java client test email.");
+        System.out.println(uniResponse);
+    }
+
+    @Test
+    public void testBatchSendEmail() {
+        UnimailClient client = new UnimailClient("");
+        ArrayList<String> receivers = new ArrayList<>();
+        receivers.add("i-curve@qq.com");
+        receivers.add("i_curve@qq.com");
+        UniResponse uniResponse = client.batchSendEmail(receivers, "java test", "this is a java client test email.");
+        System.out.println(uniResponse);
     }
 }
