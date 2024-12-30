@@ -1,25 +1,25 @@
 # unimail-java-sdk
 
-This is a Java SDK for Unimail. Quickly integrate into your project
+unimail 的 java 语言 sdk, 快速集成到你的项目
 
-[中文文档](README_zh.md)
+[english docs](README.md)
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
 - [unimail-go-sdk](#unimail-go-sdk)
-    - [simple usage](#simple-usage)
+    - [简单使用](#简单使用)
     - [api docs](#api-docs)
-    - [support language](#support-language)
+    - [support language## 支持的语言](#support-language-支持的语言)
 
 <!-- /code_chunk_output -->
 
-## simple usage
+## 简单使用
 
-- init a unimail client
+- 初始化客户端
 
-add the package
+添加 maven 依赖
 
 pom.xml
 
@@ -32,12 +32,12 @@ pom.xml
 </dependency>
 ```
 
-- send email
+- 发邮件
 
-example
-receiver: aaa@gmail.com  
-email subject: email subject  
-email content: this is a email content
+例如
+收件人: aaa@gmail.com  
+邮件标题: email subject  
+邮件正文: this is a email content
 
 ```java
 
@@ -58,12 +58,12 @@ public static void main(String[] args) {
 }
 ```
 
-- batch send email
+- 批量发送邮件
 
-example
-receivers: aaa@gmail.com,bbb@gmail.com  
-email subject: email subject  
-email content: this is a email content
+例如
+收件人: aaa@gmail.com,bbb@gmail.com  
+邮件标题: email subject  
+邮件正文: this is a email content
 
 ```java
 public static void main(String[] args) {
@@ -108,9 +108,9 @@ send email to receiver. if you have many receiver, you can concat the receiver b
 
 like SendEmail, but receivers is a slice
 
-## support language
+## support language## 支持的语言
 
-chinese is the default language for the sdk.
+sdk 默认返回的 msg 为中文
 
 - [x] english (en)
 - [x] simple chinese (zh)
@@ -119,4 +119,4 @@ chinese is the default language for the sdk.
 - [x] thai (th)
 - [x] gujarati (gu)
 
-if you want to support other language, please open a issue.
+如果你需要添加了更多语言，欢迎提 issue
