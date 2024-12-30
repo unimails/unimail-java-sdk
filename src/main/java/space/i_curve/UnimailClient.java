@@ -44,10 +44,11 @@ public class UnimailClient {
     }};
 
     public boolean checkConnection() {
-        HttpResponse<JsonNode> response = Unirest.post(this.host + "/api/user/checkConnection")
+        HttpResponse<JsonNode> response = Unirest.post(this.host + "/api/email/checkConnection")
                 .header("Content-Type", "application/json")
                 .header("authorization", this.key)
                 .header("accept-language", this.lang)
+                .body(new JSONObject())
                 .asJson();
         UniResponse result = new UniResponse(response);
         return result.isSuccess();
