@@ -97,9 +97,21 @@ public class UnimailClient {
                 .asJson();
         return new UniResponse(response);
     }
-    //public UniResponse sendEmailAsync(String toUser, String title, String content) {
-    //    return sendEmail(toUser, title, content);
-    //}
+
+    // todo 异步发送邮件
+    public UniResponse sendEmailAsync(String receiver, String subject, String content) {
+        return sendEmail(receiver, subject, content);
+    }
+
+    // todo 异步批量发送邮件
+    public UniResponse batchSendEmailAsync(List<String> receivers, String subject, String content) {
+        return batchSendEmail(receivers, subject, content);
+    }
+
+    // todo 校验发送结果
+    public UniResponse checkSendResult(String key) {
+        return new UniResponse(null);
+    }
 }
 
 
