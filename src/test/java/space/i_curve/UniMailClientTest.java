@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class UniMailClientTest {
-    private UnimailClient client = new UnimailClient("");
+    private UnimailClient client = new UnimailClient("9709a6b8-fbd5-4806-940e-704982670967");
 
     @Test
     public void testConnection() {

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class UnimailClient {
     public UnimailClient(String key) {
-        this.host = "https://unimail-back.allcloud.top";
+        this.host = "https://uniapi.allcloud.top";
         this.key = key;
     }
 
@@ -44,7 +44,7 @@ public class UnimailClient {
     }};
 
     public boolean checkConnection() {
-        HttpResponse<JsonNode> response = Unirest.post(this.host + "/api/email/checkConnection")
+        HttpResponse<JsonNode> response = Unirest.post(this.host + "/checkConnection")
                 .header("Content-Type", "application/json")
                 .header("authorization", this.key)
                 .header("accept-language", this.lang)
@@ -67,7 +67,7 @@ public class UnimailClient {
         data.put("receiver", receiver);
         data.put("title", subject);
         data.put("content", content);
-        HttpResponse<JsonNode> response = Unirest.post(this.host + "/api/email/sendEmail")
+        HttpResponse<JsonNode> response = Unirest.post(this.host + "/sendEmail")
                 .header("Content-Type", "application/json")
                 .header("authorization", this.key)
                 .header("accept-language", this.lang)
@@ -89,7 +89,7 @@ public class UnimailClient {
         data.put("receivers", receivers);
         data.put("title", subject);
         data.put("content", content);
-        HttpResponse<JsonNode> response = Unirest.post(this.host + "/api/email/batchSendEmail")
+        HttpResponse<JsonNode> response = Unirest.post(this.host + "/batchSendEmail")
                 .header("Content-Type", "application/json")
                 .header("authorization", this.key)
                 .header("accept-language", this.lang)
