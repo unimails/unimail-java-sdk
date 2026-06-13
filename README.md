@@ -1,5 +1,8 @@
 # unimail-java-sdk
 
+> The current branch SDK version is v1. This branch will no longer receive functional updates. For new users, please
+> refer to the main branch "master".
+
 This is a Java SDK for Unimail. Quickly integrate into your project
 
 [中文文档](README_zh.md)
@@ -28,7 +31,7 @@ pom.xml
 <dependency>
     <groupId>space.i-curve</groupId>
     <artifactId>unimail-client</artifactId>
-    <version>${{latest version}}</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 

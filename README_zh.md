@@ -1,5 +1,7 @@
 # unimail-java-sdk
 
+> 当前分支sdk的版本是v1, 此分支不再进行功能更新, 如果新用户请参考主分支master
+
 unimail 的 java 语言 sdk, 快速集成到你的项目
 
 [english docs](README.md)
@@ -28,7 +30,7 @@ pom.xml
 <dependency>
     <groupId>space.i-curve</groupId>
     <artifactId>unimail-client</artifactId>
-    <version>${{latest version}}</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 
