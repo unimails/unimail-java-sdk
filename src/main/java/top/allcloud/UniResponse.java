@@ -1,4 +1,4 @@
-package space.i_curve;
+package top.allcloud;
 
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
@@ -8,6 +8,15 @@ public class UniResponse {
     public Integer code;
     public String msg;
     public Object data;
+
+    @Override
+    public String toString() {
+        return "UniResponse{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 
     public boolean isSuccess() {
         return this.code != null && this.code == 0;

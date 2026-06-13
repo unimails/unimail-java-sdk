@@ -1,6 +1,6 @@
 # unimail-java-sdk
 
-> 当前分支sdk的版本是v1, 此分支不再进行功能更新, 如果新用户请参考主分支master
+> 当前sdk的版本是v2, 如果你需要用以前的v1版本, 请切换v1分支
 
 unimail 的 java 语言 sdk, 快速集成到你的项目
 
@@ -10,14 +10,14 @@ unimail 的 java 语言 sdk, 快速集成到你的项目
 
 <!-- code_chunk_output -->
 
-- [unimail-go-sdk](#unimail-go-sdk)
-    - [简单使用](#简单使用)
-    - [api docs](#api-docs)
-    - [support language## 支持的语言](#support-language-支持的语言)
+- [unimail-java-sdk](#unimail-java-sdk)
+  - [使用](#使用)
+  - [api docs](#api-docs)
+  - [support language## 支持的语言](#support-language-支持的语言)
 
 <!-- /code_chunk_output -->
 
-## 简单使用
+## 使用
 
 - 初始化客户端
 
@@ -28,18 +28,13 @@ pom.xml
 ```xml
 
 <dependency>
-    <groupId>space.i-curve</groupId>
-    <artifactId>unimail-client</artifactId>
-    <version>0.3.0</version>
+    <groupId>top.allcloud</groupId>
+    <artifactId>unimail-java-sdk</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 - 发邮件
-
-例如
-收件人: aaa@gmail.com  
-邮件标题: email subject  
-邮件正文: this is a email content
 
 ```java
 
@@ -52,30 +47,6 @@ public static void main(String[] args) {
 
     // send email
     UniResponse uniResponse = client.sendEmail("aaa@gmail.com", "email subject", "this is a email content");
-    System.out.println(uniResponse.isSuccess());
-
-    if (!uniResponse.isSuccess()) {
-        System.out.println(uniResponse.msg);
-    }
-}
-```
-
-- 批量发送邮件
-
-例如
-收件人: aaa@gmail.com,bbb@gmail.com  
-邮件标题: email subject  
-邮件正文: this is a email content
-
-```java
-public static void main(String[] args) {
-    UnimailClient client = new UnimailClient(key);
-
-    // check the client connection
-    boolean status = client.checkConnection();
-    System.out.println(status);
-
-    uniResponse = client.batchSendEmail(List.of("aaa@gmail.com", "bbb@gmail.com"), "email subject", "this is a email content");
     System.out.println(uniResponse.isSuccess());
 
     if (!uniResponse.isSuccess()) {
@@ -103,12 +74,6 @@ set language for the client,default is zh
 check the host and key is ok
 
 5. UniResponse client.SendEmail(String receiver,String subject,String content)
-
-send email to receiver. if you have many receiver, you can concat the receiver by ";" or use BatchSendEmail
-
-6. UniResponse client.BatchSendEmail(List<String> receivers,String subject,String content)
-
-like SendEmail, but receivers is a slice
 
 ## support language## 支持的语言
 

@@ -1,7 +1,6 @@
 # unimail-java-sdk
 
-> The current branch SDK version is v1. This branch will no longer receive functional updates. For new users, please
-> refer to the main branch "master".
+> The current SDK version is v2. If you need to use the previous v1 version, please switch to the v1 branch.
 
 This is a Java SDK for Unimail. Quickly integrate into your project
 
@@ -11,14 +10,14 @@ This is a Java SDK for Unimail. Quickly integrate into your project
 
 <!-- code_chunk_output -->
 
-- [unimail-go-sdk](#unimail-go-sdk)
-    - [simple usage](#simple-usage)
-    - [api docs](#api-docs)
-    - [support language](#support-language)
+- [unimail-java-sdk](#unimail-java-sdk)
+  - [usage](#usage)
+  - [api docs](#api-docs)
+  - [support language](#support-language)
 
 <!-- /code_chunk_output -->
 
-## simple usage
+## usage
 
 - init a unimail client
 
@@ -27,20 +26,14 @@ add the package
 pom.xml
 
 ```xml
-
 <dependency>
-    <groupId>space.i-curve</groupId>
-    <artifactId>unimail-client</artifactId>
-    <version>0.3.0</version>
+    <groupId>top.allcloud</groupId>
+    <artifactId>unimail-java-sdk</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 - send email
-
-example
-receiver: aaa@gmail.com  
-email subject: email subject  
-email content: this is a email content
 
 ```java
 
@@ -53,30 +46,6 @@ public static void main(String[] args) {
 
     // send email
     UniResponse uniResponse = client.sendEmail("aaa@gmail.com", "email subject", "this is a email content");
-    System.out.println(uniResponse.isSuccess());
-
-    if (!uniResponse.isSuccess()) {
-        System.out.println(uniResponse.msg);
-    }
-}
-```
-
-- batch send email
-
-example
-receivers: aaa@gmail.com,bbb@gmail.com  
-email subject: email subject  
-email content: this is a email content
-
-```java
-public static void main(String[] args) {
-    UnimailClient client = new UnimailClient(key);
-
-    // check the client connection
-    boolean status = client.checkConnection();
-    System.out.println(status);
-
-    uniResponse = client.batchSendEmail(List.of("aaa@gmail.com", "bbb@gmail.com"), "email subject", "this is a email content");
     System.out.println(uniResponse.isSuccess());
 
     if (!uniResponse.isSuccess()) {
@@ -104,12 +73,6 @@ set language for the client,default is zh
 check the host and key is ok
 
 5. UniResponse client.SendEmail(String receiver,String subject,String content)
-
-send email to receiver. if you have many receiver, you can concat the receiver by ";" or use BatchSendEmail
-
-6. UniResponse client.BatchSendEmail(List<String> receivers,String subject,String content)
-
-like SendEmail, but receivers is a slice
 
 ## support language
 

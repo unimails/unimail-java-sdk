@@ -4,26 +4,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>space.i-curve</groupId>
-    <artifactId>unimail-client</artifactId>
-    <version>0.3.0</version>
+    <groupId>top.allcloud</groupId>
+    <artifactId>unimail-java-sdk</artifactId>
+    <version>1.0.0</version>
 
-    <name>unimail-client</name>
+    <name>unimail-java-sdk</name>
     <description>java client sdk for unimail</description>
-    <url>https://github.com/i-curve/unimail-java-sdk</url>
+    <url>https://github.com/unimails/unimail-java-sdk</url>
 
     <licenses>
         <license>
             <name>BSD 3-Clause License</name>
-            <url>https://github.com/i-curve/unimail-java-sdk/blob/master/LICENSE</url>
+            <url>https://github.com/unimails/unimail-java-sdk/blob/master/LICENSE</url>
         </license>
     </licenses>
 
     <developers>
         <developer>
-            <id>i-curve</id>
-            <name>i-curve</name>
-            <email>i-curve@qq.com</email>
+            <id>allcloud</id>
+            <name>allcloud</name>
+            <email>admin@allcloud.top</email>
             <roles>
                 <role>Project Manager</role>
                 <role>Architect</role>
@@ -32,10 +32,10 @@
     </developers>
 
     <scm>
-        <connection>https://github.com/i-curve/unimail-java-sdk.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:i-curve/unimail-java-sdk.git
+        <connection>https://github.com/unimails/unimail-java-sdk.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:unimails/unimail-java-sdk.git
         </developerConnection>
-        <url>https://github.com/i-curve/unimail-java-sdk</url>
+        <url>https://github.com/unimails/unimail-java-sdk</url>
     </scm>
 
     <properties>
@@ -103,7 +103,7 @@
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
                 <configuration>
-                    <executable>C:\Program Files (x86)\GnuPG\bin\gpg.exe</executable>
+                    <executable>C:\Program Files\GnuPG\bin\gpg.exe</executable>
                     <keyname>i-curve</keyname>
                 </configuration>
                 <executions>
