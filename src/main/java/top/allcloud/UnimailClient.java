@@ -24,7 +24,7 @@ public class UnimailClient {
     }};
 
     public UnimailClient(String key) {
-        this.host = "https://uniapi.allcloud.top";
+        this.host = "https://uniapi.allcloud.top/unimail";
         this.key = key;
     }
 
@@ -73,20 +73,24 @@ public class UnimailClient {
                 .header("accept-language", this.lang)
                 .field("authorization", this.key)
                 .field("receiver", String.join(";", req.receivers))
-                .field("from", req.from == null ? "" : req.from)
                 .field("subject", req.subject);
-
+        if (req.route != null && !req.route.trim().isEmpty()) {
+            body.field("route", req.route.trim());
+        }
+        if (req.from != null && !req.from.trim().isEmpty()) {
+            body.field("from", req.from.trim());
+        }
         if (req.cc != null && !req.cc.trim().isEmpty()) {
-            body.field("cc", req.cc);
+            body.field("cc", req.cc.trim());
         }
         if (req.bcc != null && !req.bcc.trim().isEmpty()) {
-            body.field("bcc", req.bcc);
+            body.field("bcc", req.bcc.trim());
         }
         if (req.txtContent != null && !req.txtContent.trim().isEmpty()) {
-            body.field("txtContent", req.txtContent);
+            body.field("txtContent", req.txtContent.trim());
         }
         if (req.htmlContent != null && !req.htmlContent.trim().isEmpty()) {
-            body.field("htmlContent", req.htmlContent);
+            body.field("htmlContent", req.htmlContent.trim());
         }
 
         List<InputStream> streamsToClose = new ArrayList<>();

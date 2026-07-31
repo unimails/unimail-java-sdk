@@ -7,7 +7,13 @@ import java.util.List;
 
 public class UnimailReq {
     /**
-     *
+     * 路由: 可选
+     */
+    public String route;
+
+
+    /**
+     * 昵称: 可选
      */
     public String from;
     /**
@@ -35,6 +41,14 @@ public class UnimailReq {
      * 附件
      */
     public List<EmailAttachment> attachments = new ArrayList<>();
+
+    public String getRoute() {
+        return route;
+    }
+
+    public void setRoute(String route) {
+        this.route = route;
+    }
 
     public String getFrom() {
         return from;

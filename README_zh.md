@@ -11,9 +11,9 @@ unimail 的 java 语言 sdk, 快速集成到你的项目
 <!-- code_chunk_output -->
 
 - [unimail-java-sdk](#unimail-java-sdk)
-  - [使用](#使用)
-  - [api docs](#api-docs)
-  - [support language## 支持的语言](#support-language-支持的语言)
+    - [使用](#使用)
+    - [api docs](#api-docs)
+    - [support language## 支持的语言](#support-language-支持的语言)
 
 <!-- /code_chunk_output -->
 
@@ -30,7 +30,7 @@ pom.xml
 <dependency>
     <groupId>top.allcloud</groupId>
     <artifactId>unimail-java-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -46,8 +46,15 @@ public static void main(String[] args) {
     System.out.println(status);
 
     // send email
-    UniResponse uniResponse = client.sendEmail("aaa@gmail.com", "email subject", "this is a email content");
-    System.out.println(uniResponse.isSuccess());
+    UnimailReq req = new UnimailReq();
+    req.receivers.add("email");
+    req.route = "route";
+    req.route.from = "nickname";
+    req.subject = "java test";
+    req.txtContent = "this is a java client test email.";
+    req.appendFile("att1.txt", "./attachment.txt");
+    UniResponse uniResponse = client.sendEmail(req);
+    System.out.println(uniResponse);
 
     if (!uniResponse.isSuccess()) {
         System.out.println(uniResponse.msg);
@@ -57,23 +64,23 @@ public static void main(String[] args) {
 
 ## api docs
 
-1. UnimailClient New(key string)
+1. UnimailClient New (key string)
 
 init a client by key
 
-2. void client.setHost(host string)
+2. void client.setHost (host string)
 
 set host for the client
 
-3. boolean client.setLang(lang string)
+3. boolean client.setLang (lang string)
 
 set language for the client,default is zh
 
-4. boolean client.CheckConnect()
+4. boolean client.CheckConnect ()
 
 check the host and key is ok
 
-5. UniResponse client.SendEmail(String receiver,String subject,String content)
+5. UniResponse client.SendEmail (String receiver,String subject,String content)
 
 ## support language## 支持的语言
 
